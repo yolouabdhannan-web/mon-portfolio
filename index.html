@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Portfolio de YOLOU Abd-Hannan, étudiant en cybersécurité et développeur web maîtrisant PHP, C et l’algorithmique.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | YOLOU Abd-Hannan</title>
+
+    <style>
+        :root {
+            --main: #00ffcc;
+            --dark: #0e0e0e;
+            --dark2: #111;
+            --accent: #ff0066;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--dark);
+            color: #fff;
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--main);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        section {
+            padding: 90px 20px;
+        }
+
+        h1, h2 {
+            margin-bottom: 15px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(17,17,17,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--main);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== MENU HAMBURGER ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: var(--main);
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0e0e0e, #111);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--main);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 20px 0 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid var(--main);
+            border-radius: 30px;
+            font-weight: bold;
+            color: var(--main);
+        }
+
+        .btn:hover {
+            background: var(--main);
+            color: #000;
+        }
+
+        .hero-photo {
+            flex: -3;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--main);
+            box-shadow: 0 0 35px rgba(0,255,204,0.4);
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--dark2);
+        }
+
+        .content {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-list {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: 1px solid var(--main);
+            background: rgba(0,255,204,0.05);
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: var(--main);
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        /* ===== PROJECTS ===== */
+        #projects {
+            background: var(--dark);
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: var(--dark2);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid var(--main);
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,255,204,0.25);
+        }
+
+        .project h3 {
+            color: var(--main);
+            margin-bottom: 10px;
+        }
+
+        /* ===== CONTACT ===== */
+        #contact {
+            background: var(--dark2);
+            text-align: center;
+        }
+
+        #contact p {
+            margin: 10px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #000;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: var(--dark2);
+                flex-direction: column;
+                width: 200px;
+                padding: 20px;
+                border-radius: 12px;
+                display: none;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero-container {
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <div class="logo">YOLOU Abd-Hannan</div>
+
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul id="nav-links">
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1>YOLOU Abd-Hannan</h1>
+            <p>
+                Étudiant en cybersécurité et développeur web.
+                Maîtrise du PHP, bases solides en langage C et excellente
+                capacité à traduire les algorithmes en code structuré et sécurisé.
+            </p>
+            <a href="#contact" class="btn">Me contacter</a>
+        </div>
+
+        <div class="hero-photo">
+            <img src="hannan.png" alt="Photo de YOLOU Abd-Hannan">
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="content">
+        <h2>À propos de moi</h2>
+        <p>
+            Passionné par la sécurité des systèmes d’information,
+            je combine algorithmique, programmation et cybersécurité
+            pour concevoir des solutions fiables et performantes.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="content">
+        <h2>Compétences</h2>
+        <div class="skills-list">
+            <div class="skill">HTML / CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">PHP</div>
+            <div class="skill">Langage C (bases solides)</div>
+            <div class="skill">Algorithmique</div>
+            <div class="skill">Algorithmes → Code</div>
+            <div class="skill">Linux</div>
+            <div class="skill">Cybersécurité</div>
+            <div class="skill">SQL</div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="content">
+        <h2>Projets</h2>
+        <div class="projects-container">
+            <div class="project">
+                <h3>Application de Tontine</h3>
+                <p>Gestion sécurisée des cotisations en ligne.</p>
+            </div>
+            <div class="project">
+                <h3>Portfolio Personnel</h3>
+                <p>Site web professionnel et responsive.</p>
+            </div>
+            <div class="project">
+                <h3>Sécurité Réseau</h3>
+                <p>Audit, simulation d’attaque et sécurisation réseau.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:yolouabdhannan@gmail.com">yolouabdhannan@gmail.com</a></p>
+    <p>Téléphone : <a href="tel:+2290166043688">+229 01 66 04 36 88</a></p>
+</section>
+
+<footer>
+    &copy; 2026 YOLOU Abd-Hannan — Tous droits réservés
+</footer>
+
+<script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+</script>
+
+</body>
+</html>
